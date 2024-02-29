@@ -30,7 +30,7 @@ header {
 
   section {
     position: relative;
-    min-height: 100vh;
+    min-height: 60%;
     width: 100%;
     position: relative;
     transform-style: inherit;
@@ -128,8 +128,8 @@ perspective: 500px;
   margin: 10px;
   margin-right: 10%;
   border: 1px solid black; 
-  width: 200px;
-  height: 300px;
+  width: 350px;
+  height: 500px;
   box-shadow: 0px 0px 5px grey;
   transition: transform 0.6s ease-in-out,background-color 300ms ease-in-out,font-size 350ms ease-in-out;
   background-image:url(/images/Bg1.jpg);
@@ -143,20 +143,19 @@ perspective: 500px;
 }
 
 #textpopup{
-  width: 190px;
-  height: 90px;
+ 
  z-index: -800;
-transform: translateY(-60%);
-color: azure;
+transform: translateY(-20%,50%);
+color: red;
 opacity: 0;
 transition: 0.5s ease-in-out;
 
 }
 #popup{
-  width: 190px;
-  height: 290px;
+  width: 320px;
+  height: 420px;
   opacity: 0;
-  transform: translate(0, 0);
+  transform: translate(15px, 70px);
   transition: 0.5s ease-in-out;
   overflow: visible;
 
@@ -165,8 +164,8 @@ transition: 0.5s ease-in-out;
 }
 .card1:hover #textpopup{
   opacity: 100;
-  font-size: 80px;
-  transform: translateY(-90%) translateX(-20%) rotate3d(-1 , 0, 0, 15deg);
+  font-size: 130px;
+  transform: translateY(-40%) translateX(-15%) rotate3d(-1 , 0, 0, 15deg);
   color: red;
 
 
@@ -174,7 +173,7 @@ transition: 0.5s ease-in-out;
  }
 .card1:hover #popup{
  opacity: 100;
-  transform: rotate3d(-1 , 0, 0, 15deg) scale(1.2);
+  transform: rotate3d(-1 , 0, 0, 15deg) scale(1.4) translate(0,30px);
   overflow: visible;
   
 }
