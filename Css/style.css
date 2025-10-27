@@ -248,6 +248,10 @@ html {
   height: 100%;
   filter: grayscale(var(--bw, 100%));
   -webkit-filter: grayscale(var(--bw, 100%));
+  will-change: filter;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  touch-action: pan-y;
 }
 
 body {
@@ -275,6 +279,10 @@ body {
     center calc(var(--bg_shift, 0px) + var(--vh, 100vh)),
     center calc(var(--bg_shift, 0px) + calc(var(--vh, 100vh) * 2)),
     center calc(var(--bg_shift, 0px) + calc(var(--vh, 100vh) * 3));
+  will-change: background-position;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  touch-action: pan-y;
 }
 
 
@@ -894,6 +902,30 @@ body {
     overflow: visible;
   }
   @media (max-width: 768px) {
+    html {
+      will-change: filter;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-perspective: 1000;
+      perspective: 1000;
+      touch-action: pan-y;
+    }
+    
+    body {
+      will-change: background-position;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-perspective: 1000;
+      perspective: 1000;
+      background-attachment: scroll;
+      touch-action: pan-y;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+    
     .css-section,
     .css-section-top {
       flex-direction: column;

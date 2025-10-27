@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
   var root = document.documentElement;
   var ticking = false;
+  var lastScrollTop = 0;
+  var scrollTimeout;
+  var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
   // Get the main container that has the scroll (might be html or body)
   var scrollContainer = document.scrollingElement || document.documentElement;
@@ -15,6 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
   function update() {
     // Get current scroll position
     var scrollTop = scrollContainer.scrollTop || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    
+    // Skip update if scroll position hasn't changed significantly (mobile optimization)
+    if (isMobile && Math.abs(scrollTop - lastScrollTop) < 2) {
+      ticking = false;
+      return;
+    }
+    
+    lastScrollTop = scrollTop;
     
     // Get the total scrollable height
     var scrollHeight = Math.max(
@@ -52,16 +63,32 @@ document.addEventListener('DOMContentLoaded', function() {
     var shiftPx = -(eased * 3 * window.innerHeight);
     root.style.setProperty('--bg_shift', shiftPx.toFixed(2) + 'px');
     
-    // For debugging
-    console.log('Scroll:', scrollTop.toFixed(0), '/', scrollHeight.toFixed(0), 'Grayscale:', grayscaleValue + '%', 'BG Pos:', bgPosition, 'BG Shift:', shiftPx.toFixed(2) + 'px');
+    // For debugging - reduce console output on mobile
+    if (!isMobile) {
+      console.log('Scroll:', scrollTop.toFixed(0), '/', scrollHeight.toFixed(0), 'Grayscale:', grayscaleValue + '%', 'BG Pos:', bgPosition, 'BG Shift:', shiftPx.toFixed(2) + 'px');
+    }
     
     ticking = false;
   }
   
   function onScroll() {
     if (!ticking) {
-      window.requestAnimationFrame(update);
-      ticking = true;
+      // Use longer timeout on mobile for better performance
+      var timeoutDuration = isMobile ? 16 : 8;
+      
+      if (isMobile) {
+        // Throttle updates on mobile
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(function() {
+          if (!ticking) {
+            window.requestAnimationFrame(update);
+            ticking = true;
+          }
+        }, timeoutDuration);
+      } else {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
     }
   }
   
@@ -74,15 +101,21 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('scroll', onScroll, { passive: true, capture: true });
   window.addEventListener('resize', onScroll, { passive: true });
   window.addEventListener('resize', setVhVar, { passive: true });
-  window.addEventListener('orientationchange', setVhVar, { passive: true });
+  window.addEventListener('orientationchange', function() {
+    setTimeout(function() {
+      setVhVar();
+      update();
+    }, 100);
+  }, { passive: true });
   
-  // Fallback: force update on a timer
-  setInterval(update, 200);
+  // Fallback: force update on a timer (longer interval on mobile)
+  var fallbackInterval = isMobile ? 500 : 200;
+  setInterval(update, fallbackInterval);
   
   // Also update after a short delay to catch any late-loading content
   setTimeout(update, 500);
   setTimeout(update, 1000);
   
   // Debug: log the scroll container
-  console.log('Using scroll container:', scrollContainer);
+  console.log('Using scroll container:', scrollContainer, 'Mobile:', isMobile);
 });
