@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -18,6 +18,7 @@
   </head>
 
   <body>
+    <div class="stars" id="starfield"></div>
     <link rel="stylesheet" href="/Css/style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
@@ -31,31 +32,138 @@
       crossorigin="anonymous"
     ></script>
     <header>
-      <h1 id="heading">Ruben Meiring</h1>
+      <div class="header-content">
+        <h1 class="header-title">Ruben Meiring</h1>
+        <p class="header-subtitle">Software Developer & Creative Technologist</p>
+      </div>
     </header>
     <section class="section1">
       <div class="about-me">
-        <h2>About me</h2>
         <div class="about-content">
-          <p>
-            Hey there! I’m a South African software developer with over 6 years
-            of experience building all sorts of web and mobile apps. I’ve worked
-            with a bunch of different tech — from HTML, CSS and React to NodeJS,
-            Express, MongoDB, MySQL, Angular, and even a bit of .NET.
-          </p>
+          <div class="contact-info">
+            <p><strong>Software Developer</strong></p>
+            <p>Mossel Bay / Port Elizabeth, South Africa</p>
+            <p>+27 72 491 7288</p>
+            <p>rmeiring@hotmail.com</p>
+          </div>
+          
+          <div class="skills-section">
+            <h3>Technical Skills</h3>
+            <div class="skills-grid">
+              <div class="skill-category">
+                <h4>Frontend</h4>
+                <p>Angular, JavaScript, HTML, CSS, React, React Native</p>
+              </div>
+              <div class="skill-category">
+                <h4>Backend</h4>
+                <p>ASP.NET Core, .NET 8, NodeJS, ExpressJS</p>
+              </div>
+              <div class="skill-category">
+                <h4>Mobile</h4>
+                <p>React Native (Expo), Android (Java), .NET MAUI</p>
+              </div>
+              <div class="skill-category">
+                <h4>Databases</h4>
+                <p>MySQL, MongoDB</p>
+              </div>
+              <div class="skill-category">
+                <h4>Tools</h4>
+                <p>Git, REST APIs</p>
+              </div>
+              <div class="skill-category">
+                <h4>Other</h4>
+                <p>Client Support, System Maintenance</p>
+              </div>
+            </div>
+          </div>
 
-          <p>
-            I love solving problems, learning new tools, and creating clean,
-            efficient solutions that actually make life easier. I’m fluent in
-            both Afrikaans and English, and I’m just as comfortable working in a
-            team as I am tackling projects solo.
-          </p>
+          <div class="summary-section">
+            <h3>Professional Summary</h3>
+            <p>South African Intermediate Software Developer with 7+ years of professional experience building and maintaining scalable web and mobile applications. Strong background in Angular, .NET, ASP.NET Core, MAUI, JavaScript, and database-driven systems. Proven ability to work across the full stack, contribute in team environments, and take ownership of features from development through to production. Fluent in Afrikaans and English, with a practical, problem-solving mindset and a strong work ethic.</p>
+          </div>
+        </div>
+      </div>
+      
+      <h2>Work Experience Timeline</h2>
+      <div class="timeline"> 
+        <div class="timeline__event animated fadeInUp delay-3s timeline__event--type1">
+          <div class="timeline__event__icon"></div>
+          <div class="timeline__event__date">
+            Dec 2024 – Present
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Wirk (Pty) Ltd - Intermediate Software Developer
+            </div>
+            <div class="timeline__event__description">
+              <p><strong>Tech:</strong> Angular, ASP.NET Core (.NET 8), Git</p>
+              <p>Developing and maintaining enterprise web applications using Angular and ASP.NET Core (.NET 8). Contributing to architectural decisions and improving code quality across projects. Working in a hybrid environment with cross-functional teams. Actively involved in version control, code reviews, and deployment workflows using Git.</p>
+              <p><strong>Port Elizabeth, Eastern Cape, South Africa (Hybrid)</strong></p>
+            </div>
+          </div>
+        </div>
 
-          <p>
-            I bring creativity, a bit of leadership flair, and a solid dose of
-            determination to everything I do — always aiming to grow, build cool
-            stuff, and keep up with the latest in the industry.
-          </p>
+        <div class="timeline__event animated fadeInUp delay-2s timeline__event--type2">
+          <div class="timeline__event__icon"></div>
+          <div class="timeline__event__date">
+            Aug 2024 – Dec 2024
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Wirk (Pty) Ltd - Software Developer
+            </div>
+            <div class="timeline__event__description">
+              <p><strong>Tech:</strong> Angular, ASP.NET, .NET 8, MAUI, Git</p>
+              <p>Built and maintained full-stack applications using Angular and ASP.NET. Developed cross-platform applications using .NET MAUI. Assisted with system maintenance, bug fixes, and feature enhancements. Collaborated closely with senior developers to deliver stable, production-ready solutions.</p>
+              <p><strong>Port Elizabeth, Eastern Cape, South Africa (On-site)</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__event animated fadeInUp delay-1s timeline__event--type3">
+          <div class="timeline__event__icon"></div>
+          <div class="timeline__event__date">
+            May 2021 – Aug 2024
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              SmartPractice (Pty) Ltd - Intermediate Software Developer
+            </div>
+            <div class="timeline__event__description">
+              <p><strong>Tech:</strong> React Native, Expo, NodeJS, JavaScript, HTML, CSS, Java (Android)</p>
+              <p>Lead Mobile Developer for the SmartPractice mobile application using React Native and Expo. Successfully launched and maintained applications on Android and iOS. Developed and maintained web applications using HTML, CSS, JavaScript, NodeJS, React, and Ajax. Built and maintained legacy Android applications in Java. Provided technical support to clients and internal stakeholders. Conducted client onboarding and training sessions. Mentored and trained junior developers.</p>
+              <p><strong>Mossel Bay, South Africa</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__event animated fadeInUp timeline__event--type1">
+          <div class="timeline__event__icon"></div>
+          <div class="timeline__event__date">
+            June 2019 – May 2021
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              SmartPractice (Pty) Ltd - Software Developer
+            </div>
+            <div class="timeline__event__description">
+              <p><strong>Tech:</strong> React Native, JavaScript, NodeJS, HTML, CSS, Java (Android)</p>
+              <p>Developed and maintained mobile applications using React Native. Assisted in building Android-only applications using Java. Contributed to web development projects using HTML, CSS, JavaScript, NodeJS. Supported clients with technical troubleshooting and system usage.</p>
+              <p><strong>Mossel Bay, South Africa</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="links-section">
+        <h3>Connect</h3>
+        <div class="links-grid">
+          <a href="https://linkedin.com/in/ruben-meiring-b31344160" target="_blank" class="link-item">
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://kykmaekhetmyeiewebwerf.co.za" target="_blank" class="link-item">
+            <span>Website</span>
+          </a>
         </div>
       </div>
     </section>
@@ -89,7 +197,7 @@
             >
               <svg
                 class="d20-svg-spinner"
-                fill="#2c2a3e"
+                fill="var(--star-cyan)"
                 width="100px"
                 height="100px"
                 viewBox="-16 0 512 512"
@@ -228,27 +336,33 @@
 
     </section>
 
-    <section class="section4">
-      <div class="about-me">
-        <h2>Section 4</h2>
-        <div class="about-content">
-          <p>Section 4 content goes here.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-content">
         <p class="footer-brand">RMCreations</p>
+        <div class="footer-links">
+          <a href="mailto:rmeiring@hotmail.com">rmeiring@hotmail.com</a>
+          <a
+            href="https://linkedin.com/in/ruben-meiring-b31344160"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          <a
+            href="https://kykmaekhetmyeiewebwerf.co.za"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Website</a
+          >
+        </div>
         <div class="credits">
           <p>
             Font:
             <a
-              href="https://fonts.google.com/specimen/DotGothic16"
+              href="https://fonts.google.com/specimen/Inter"
               target="_blank"
               rel="noopener noreferrer"
-              >DotGothic16</a
+              >Inter</a
             >
           </p>
           <p>
@@ -261,10 +375,12 @@
             >
           </p>
         </div>
+        <p class="footer-copyright">&copy; 2026 Ruben Meiring</p>
       </div>
     </footer>
   </body>
   <!-- Scripts-->
+  <script src="/JS/starfield.js"></script>
   <script src="/JS/colorize.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
